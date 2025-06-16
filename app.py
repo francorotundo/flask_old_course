@@ -1,10 +1,13 @@
 from flask import Flask, make_response, redirect, render_template, request
+from flask_bootstrap import Bootstrap
 
 app = Flask(
     __name__,
     template_folder='./templates', 
     static_folder='./static'
     )
+bootstrap = Bootstrap(app)
+
 
 todos = [f'TODO {i}' for i in range(1,5)]
 
