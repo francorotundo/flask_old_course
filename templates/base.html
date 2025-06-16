@@ -6,6 +6,9 @@
     <title>{% block title %}FLASK | {% endblock title %}</title>
 </head>
 <body>
+    <header>
+        {% include "navbar.html" %}
+    </header>
     {% block content %}{% endblock content %}
 </body>
 </html>
