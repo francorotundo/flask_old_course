@@ -7,6 +7,10 @@ app = Flask(
     )
 
 todos = [f'TODO {i}' for i in range(1,5)]
+
+@app.errorhandler(404)
+def not_found(error):
+    return render_template('404.html', error= error)
 @app.route('/hello', methods=["GET"])
 def hello_world():
     user_ip = request.cookies.get('user_ip')
