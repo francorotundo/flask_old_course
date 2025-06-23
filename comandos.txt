@@ -2,3 +2,4 @@ En caso de que la instacia de flask no este en un archivo app.py se debe hacer l
 
 export FLASK_APP=main.py
 export FLASK_DEBUG=1 (para colocarlo en modo debug)
+export FLASK_ENV=development

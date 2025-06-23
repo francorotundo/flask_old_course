@@ -1,4 +1,4 @@
-from flask import Flask, make_response, redirect, render_template, request
+from flask import Flask, make_response, redirect, render_template, request, session
 from flask_bootstrap import Bootstrap
 
 app = Flask(
@@ -6,7 +6,10 @@ app = Flask(
     template_folder='./templates', 
     static_folder='./static'
     )
+
 bootstrap = Bootstrap(app)
+
+app.config['SECRET_KEY'] = 'MI CLAVE SECRETA'
 
 
 todos = [f'TODO {i}' for i in range(1,5)]
@@ -16,7 +19,8 @@ def not_found(error):
     return render_template('404.html', error= error)
 @app.route('/hello', methods=["GET"])
 def hello_world():
-    user_ip = request.cookies.get('user_ip')
+    user_ip = session.get('user_ip')
+    
     context = {
         "user_ip":user_ip, 
         "todos":todos
@@ -27,7 +31,7 @@ def hello_world():
 def index():
     user_ip = request.remote_addr
     response = make_response(redirect('/hello'))
-    response.set_cookie('user_ip', user_ip)
+    session['user_ip'] = user_ip
     
     return response
     
