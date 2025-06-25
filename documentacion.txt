@@ -1,0 +1,4 @@
+https://pythonise.com/series/learning-flask/flask-application-structure
+https://dev.to/itachiuchiha/how-i-structure-my-flask-apps-3eh8
+https://flask.palletsprojects.com/en/stable/tutorial/layout/
+https://flask.palletsprojects.com/en/stable/tutorial/factory/
