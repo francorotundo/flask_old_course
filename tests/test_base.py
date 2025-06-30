@@ -35,3 +35,11 @@ class MainTest(TestCase):
         self.assert_message_flashed(message)
         self.assertEqual(response.status_code, 302)
         self.assertEqual(response.location, url_for('index'))
+        
+    def test_auth_blueprint_exists(self):
+        self.assertIn('auth', self.app.blueprints)
+        
+    def test_auth_login_get(self):
+        response = self.client.get((url_for('auth.login')))
+        
+        self.assert200(response)
